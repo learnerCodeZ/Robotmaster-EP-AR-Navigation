@@ -1,0 +1,21 @@
+{
+    "name": "Unity.Robotics.Visualizations.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:9164b94bd248413981980879b469dea8",
+        "GUID:669292c8b6654abdb5ee6cfe3de75ecf",
+        "GUID:9853a1ce828c44f185b2638ca5a1ddbb",
+        "GUID:badef5468be04774b4eac4be6ea116a2"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

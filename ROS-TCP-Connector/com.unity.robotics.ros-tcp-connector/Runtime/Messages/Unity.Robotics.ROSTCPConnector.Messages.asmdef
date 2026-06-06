@@ -1,0 +1,16 @@
+{
+    "name": "Unity.Robotics.ROSTCPConnector.Messages",
+    "rootNamespace": "",
+    "references": [
+        "GUID:9853a1ce828c44f185b2638ca5a1ddbb"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
