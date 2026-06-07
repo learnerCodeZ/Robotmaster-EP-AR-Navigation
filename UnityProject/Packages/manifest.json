@@ -3,6 +3,7 @@
     "com.unity.ugui": "1.0.0",
     "com.unity.modules.jsonserialize": "1.0.0",
     "com.unity.modules.imageconversion": "1.0.0",
+    "com.unity.modules.physics": "1.0.0",
     "com.unity.robotics.ros-tcp-connector": "file:D:/Unity_Ros/ROS-TCP-Connector/com.unity.robotics.ros-tcp-connector",
     "com.unity.robotics.visualizations": "file:D:/Unity_Ros/ROS-TCP-Connector/com.unity.robotics.visualizations"
   },

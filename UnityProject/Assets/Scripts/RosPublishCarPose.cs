@@ -13,6 +13,8 @@ public class RosPublishCarPose : MonoBehaviour
     private ROSConnection ros;
     private float timer;
 
+    public static float LastPublishTime;
+
     void Start()
     {
         ros = ROSConnection.GetOrCreateInstance();
@@ -51,6 +53,7 @@ public class RosPublishCarPose : MonoBehaviour
         };
 
         ros.Publish(poseTopic, msg);
+        LastPublishTime = Time.time;
         Debug.Log($"[CarPose] published → ROS({rosPos.x:F2}, {rosPos.y:F2}, {rosPos.z:F2})");
     }
 }
