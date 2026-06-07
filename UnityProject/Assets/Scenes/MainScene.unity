@@ -420,6 +420,7 @@ GameObject:
   - component: {fileID: 405}
   - component: {fileID: 406}
   - component: {fileID: 407}
+  - component: {fileID: 408}
   m_Layer: 0
   m_Name: RobotCar
   m_TagString: Untagged
@@ -554,6 +555,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   odomTopic: /odom
+--- !u!114 &408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 027a28a30c8f0c1428041fbeaef5f552, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrivalDistance: 0.3
+  maxSpeed: 1.5
+  turnSpeed: 2
+  linearSpeed: 1
 --- !u!1 &500
 GameObject:
   m_ObjectHideFlags: 0
@@ -705,6 +722,7 @@ MonoBehaviour:
   sampleInterval: 0.2
   maxPoints: 5000
   trimAmount: 1000
+  clearKey: 114
 --- !u!1 &600
 GameObject:
   m_ObjectHideFlags: 0

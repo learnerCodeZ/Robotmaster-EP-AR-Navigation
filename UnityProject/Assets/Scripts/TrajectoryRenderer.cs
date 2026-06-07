@@ -5,6 +5,7 @@ public class TrajectoryRenderer : MonoBehaviour
 {
     [Header("Trajectory Settings")]
     public LineRenderer lineRenderer;
+    public Transform target;
     public float sampleInterval = 0.2f;
     public int maxPoints = 5000;
     public int trimAmount = 1000;
@@ -47,7 +48,8 @@ public class TrajectoryRenderer : MonoBehaviour
         if (timer >= sampleInterval)
         {
             timer = 0f;
-            AddPoint(transform.position);
+            Vector3 pos = (target != null) ? target.position : transform.position;
+            AddPoint(pos);
         }
     }
 

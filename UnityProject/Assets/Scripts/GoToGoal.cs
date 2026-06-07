@@ -9,12 +9,16 @@ public class GoToGoal : MonoBehaviour
     public float linearSpeed = 1.0f;
 
     private VirtualCarController carController;
+    private PathPreview pathPreview;
     private Vector3? currentGoal;
     private bool isNavigating;
 
     void Start()
     {
         carController = GetComponent<VirtualCarController>();
+        pathPreview = GetComponent<PathPreview>();
+        if (pathPreview == null)
+            pathPreview = gameObject.AddComponent<PathPreview>();
     }
 
     void Update()
@@ -24,6 +28,7 @@ public class GoToGoal : MonoBehaviour
             currentGoal = NavGoalMarker.LastGoal.Value;
             NavGoalMarker.LastGoal = null;
             isNavigating = true;
+            pathPreview.ShowPath(transform.position, currentGoal.Value);
             Debug.Log($"[GoToGoal] Target set: ({currentGoal.Value.x:F2}, {currentGoal.Value.z:F2})");
         }
 
@@ -41,6 +46,7 @@ public class GoToGoal : MonoBehaviour
         if (distance < arrivalDistance)
         {
             Debug.Log($"[GoToGoal] Arrived! distance={distance:F2}");
+            pathPreview.ClearPath();
             isNavigating = false;
             currentGoal = null;
             carController.SetVelocity(0, 0);
