@@ -11,7 +11,7 @@ public static class MRTKSetup
     [MenuItem("MRTK/Setup MRTK3 in Scene")]
     static void SetupMRTK()
     {
-        string root = Directory.GetCurrentDirectory().Replace('\\', '/');
+        string root = Path.GetDirectoryName(Application.dataPath).Replace('\\', '/');
 
         // --- MRTK XR Rig ---
         string xrRigAssetPath = Path.Combine(root, XR_RIG_PATH).Replace('\\', '/');
