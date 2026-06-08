@@ -1,12 +1,26 @@
 {
   "dependencies": {
+    "com.unity.inputsystem": "1.14.0",
     "com.unity.robotics.ros-tcp-connector": "file:D:/Unity_Ros/ROS-TCP-Connector/com.unity.robotics.ros-tcp-connector",
     "com.unity.robotics.visualizations": "file:D:/Unity_Ros/ROS-TCP-Connector/com.unity.robotics.visualizations",
+    "com.unity.textmeshpro": "3.0.6",
     "com.unity.ugui": "1.0.0",
-    "org.mixedrealitytoolkit.core": "3.2.2",
+    "com.unity.xr.arfoundation": "5.0.5",
+    "com.unity.xr.core-utils": "2.1.0",
+    "com.unity.xr.interaction.toolkit": "2.2.0",
+    "com.unity.xr.management": "4.2.1",
+    "com.unity.xr.openxr": "1.8.2",
     "com.unity.modules.imageconversion": "1.0.0",
     "com.unity.modules.jsonserialize": "1.0.0",
-    "com.unity.modules.physics": "1.0.0"
+    "com.unity.modules.animation": "1.0.0",
+    "com.unity.modules.physics": "1.0.0",
+    "com.microsoft.mrtk.graphicstools.unity": "file:mrtk3/com.microsoft.mrtk.graphicstools.unity-0.7.1.tgz",
+    "org.mixedrealitytoolkit.core": "file:mrtk3/org.mixedrealitytoolkit.core-3.0.0.tgz",
+    "org.mixedrealitytoolkit.input": "file:mrtk3/org.mixedrealitytoolkit.input-3.0.0.tgz",
+    "org.mixedrealitytoolkit.uxcomponents": "file:mrtk3/org.mixedrealitytoolkit.uxcomponents-3.0.0.tgz",
+    "org.mixedrealitytoolkit.standardassets": "file:mrtk3/org.mixedrealitytoolkit.standardassets-3.0.0.tgz",
+    "org.mixedrealitytoolkit.spatialmanipulation": "file:mrtk3/org.mixedrealitytoolkit.spatialmanipulation-3.0.0.tgz",
+    "org.mixedrealitytoolkit.uxcore": "file:mrtk3/org.mixedrealitytoolkit.uxcore-3.0.0.tgz"
   },
   "scopedRegistries": []
 }

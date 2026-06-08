@@ -719,6 +719,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lineRenderer: {fileID: 502}
+  target: {fileID: 401}
   sampleInterval: 0.2
   maxPoints: 5000
   trimAmount: 1000
