@@ -1,7 +1,9 @@
 using UnityEngine;
+using UnityEngine.XR;
 using Unity.Robotics.ROSTCPConnector;
 using RosMessageTypes.Geometry;
 using RosMessageTypes.Std;
+using MixedReality.Toolkit;
 
 public class NavGoalMarker : MonoBehaviour
 {
@@ -26,15 +28,33 @@ public class NavGoalMarker : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (IsAirTapPressed())
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
                 LastGoal = hit.point;
                 SetGoal(hit.point);
             }
         }
+    }
+
+    /// <summary>
+    /// Detects air tap via MRTK3 Hands Aggregator pinch.
+    /// Editor: Left Ctrl + LMB (right hand). HoloLens 2: actual air tap.
+    /// Falls back to mouse click if MRTK3 subsystem is unavailable.
+    /// </summary>
+    private bool IsAirTapPressed()
+    {
+        if (XRSubsystemHelpers.HandsAggregator != null)
+        {
+            if (XRSubsystemHelpers.HandsAggregator.TryGetPinchProgress(
+                XRNode.RightHand, out bool ready, out bool pinching, out float amount))
+            {
+                return pinching;
+            }
+        }
+        return Input.GetMouseButtonDown(0);
     }
 
     void SetGoal(Vector3 position)
