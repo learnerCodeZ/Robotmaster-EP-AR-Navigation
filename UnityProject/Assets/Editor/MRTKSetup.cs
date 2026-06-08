@@ -1,28 +1,23 @@
 using UnityEngine;
 using UnityEditor;
 using UnityEditor.SceneManagement;
-using System.IO;
 
 public static class MRTKSetup
 {
-    private const string XR_RIG_PATH = "Library/PackageCache/org.mixedrealitytoolkit.input@719fc273754c/Assets/Prefabs/MRTK XR Rig.prefab";
-    private const string INPUT_SIM_PATH = "Library/PackageCache/org.mixedrealitytoolkit.input@719fc273754c/Simulation/Prefabs/MRTKInputSimulator.prefab";
-
     [MenuItem("MRTK/Setup MRTK3 in Scene")]
     static void SetupMRTK()
     {
-        string root = Path.GetDirectoryName(Application.dataPath).Replace('\\', '/');
-
-        // --- MRTK XR Rig ---
-        string xrRigAssetPath = Path.Combine(root, XR_RIG_PATH).Replace('\\', '/');
-        GameObject xrRigPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(xrRigAssetPath);
+        GameObject xrRigPrefab = FindPrefab("MRTK XR Rig");
         if (xrRigPrefab == null)
         {
             EditorUtility.DisplayDialog("MRTK Setup",
-                "MRTK XR Rig prefab not found at:\n" + xrRigAssetPath, "OK");
+                "MRTK XR Rig prefab not found.\n\nMake sure MRTK3 Input package is installed.", "OK");
             return;
         }
 
+        GameObject simPrefab = FindPrefab("MRTKInputSimulator");
+
+        // --- MRTK XR Rig ---
         GameObject existingRig = GameObject.Find("MRTK XR Rig");
         if (existingRig != null)
         {
@@ -36,8 +31,6 @@ public static class MRTKSetup
         Undo.RegisterCreatedObjectUndo(xrRig, "Setup MRTK3");
 
         // --- MRTKInputSimulator ---
-        string simAssetPath = Path.Combine(root, INPUT_SIM_PATH).Replace('\\', '/');
-        GameObject simPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(simAssetPath);
         if (simPrefab != null)
         {
             GameObject existingSim = GameObject.Find("MRTKInputSimulator");
@@ -59,5 +52,19 @@ public static class MRTKSetup
         EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
         Debug.Log("[MRTK Setup] MRTK3 rig and input simulator added to scene.");
         EditorUtility.DisplayDialog("MRTK Setup", "MRTK3 setup complete!\n\nPress Play to test hand simulation.", "OK");
+    }
+
+    static GameObject FindPrefab(string name)
+    {
+        string[] guids = AssetDatabase.FindAssets(name + " t:Prefab");
+        foreach (string guid in guids)
+        {
+            string path = AssetDatabase.GUIDToAssetPath(guid);
+            if (path.Contains("mixedrealitytoolkit") && path.Contains(name))
+            {
+                return AssetDatabase.LoadAssetAtPath<GameObject>(path);
+            }
+        }
+        return null;
     }
 }

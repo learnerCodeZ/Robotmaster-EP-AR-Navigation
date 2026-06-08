@@ -28,7 +28,16 @@ public class NavGoalMarker : MonoBehaviour
 
     void Update()
     {
-        if (IsAirTapPressed())
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hit))
+            {
+                LastGoal = hit.point;
+                SetGoal(hit.point);
+            }
+        }
+        else if (IsAirTapPressed())
         {
             Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
             if (Physics.Raycast(ray, out RaycastHit hit))
@@ -42,7 +51,6 @@ public class NavGoalMarker : MonoBehaviour
     /// <summary>
     /// Detects air tap via MRTK3 Hands Aggregator pinch.
     /// Editor: Left Ctrl + LMB (right hand). HoloLens 2: actual air tap.
-    /// Falls back to mouse click if MRTK3 subsystem is unavailable.
     /// </summary>
     private bool IsAirTapPressed()
     {
@@ -54,7 +62,7 @@ public class NavGoalMarker : MonoBehaviour
                 return pinching;
             }
         }
-        return Input.GetMouseButtonDown(0);
+        return false;
     }
 
     void SetGoal(Vector3 position)
