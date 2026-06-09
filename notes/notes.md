@@ -48,3 +48,12 @@ AR（增强现实）是在真实世界上叠加虚拟信息，比如用手机相
 VR（虚拟现实）则是完全由电脑生成的全虚拟环境，你戴上头显后，看不到周围的真实房间，只看到游戏或电影里的另一个世界。它追求完全的沉浸感。
 
 简单区分就是：AR给现实加特效，VR带你进幻境。
+
+- Standalone是什么
+
+Standalone = Unity 编辑器 Play 模式 或 Windows/Mac/Linux 桌面构建。
+对比一下：
+平台名	实际含义	我们的用途
+Standalone	Windows 桌面	编辑器 Play 模式（模拟测试）
+UWP (Metro)	通用 Windows 平台	HoloLens 2 部署
+之前所有 Play 模式崩的问题都是 Standalone 配置导致的。UWP 的 OpenXR 设置是独立的，改它不影响 Play 模式。

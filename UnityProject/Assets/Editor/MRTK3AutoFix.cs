@@ -12,7 +12,6 @@ public static class MRTK3AutoFix
     public static void AutoFixAll()
     {
         FixSyntheticHandsConfig();
-        EnableXRSimulationLoader();
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
         Debug.Log("[MRTK3 Auto-Fix] Done. Now run MRTK > Setup MRTK3 in Scene.");

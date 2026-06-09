@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: MRTKProfile
   m_EditorClassIdentifier: 
   isCustomProfile: 0
-  loadedSubsystems:
-  - reference: MixedReality.Toolkit.Input.SyntheticHandsSubsystem, MixedReality.Toolkit.Input
+  loadedSubsystems: []
   subsystemConfigs:
     entries:
     - key:
         reference: MixedReality.Toolkit.Input.SyntheticHandsSubsystem, MixedReality.Toolkit.Input
-      value: {fileID: 11400000, guid: c2e1624b32b9cc54b9a2470396632191, type: 2}
+      value: {fileID: 11400000, guid: cff1d8acb8f36e5478ce3906f122a8f6, type: 2}
