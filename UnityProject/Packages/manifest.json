@@ -19,7 +19,8 @@
     "org.mixedrealitytoolkit.uxcomponents": "file:mrtk3/org.mixedrealitytoolkit.uxcomponents-3.0.0.tgz",
     "org.mixedrealitytoolkit.standardassets": "file:mrtk3/org.mixedrealitytoolkit.standardassets-3.0.0.tgz",
     "org.mixedrealitytoolkit.spatialmanipulation": "file:mrtk3/org.mixedrealitytoolkit.spatialmanipulation-3.0.0.tgz",
-    "org.mixedrealitytoolkit.uxcore": "file:mrtk3/org.mixedrealitytoolkit.uxcore-3.0.0.tgz"
+    "org.mixedrealitytoolkit.uxcore": "file:mrtk3/org.mixedrealitytoolkit.uxcore-3.0.0.tgz",
+    "com.microsoft.mixedreality.openxr": "file:mrtk3/com.microsoft.mixedreality.openxr-1.11.2.tgz"
   },
   "scopedRegistries": []
 }
