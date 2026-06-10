@@ -52,8 +52,14 @@ public class RosPublishCarPose : MonoBehaviour
             pose = pose
         };
 
-        ros.Publish(poseTopic, msg);
-        LastPublishTime = Time.time;
-        Debug.Log($"[CarPose] published → ROS({rosPos.x:F2}, {rosPos.y:F2}, {rosPos.z:F2})");
+        try
+        {
+            ros.Publish(poseTopic, msg);
+            LastPublishTime = Time.time;
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogWarning($"[CarPose] Publish failed (will retry): {e.Message}");
+        }
     }
 }

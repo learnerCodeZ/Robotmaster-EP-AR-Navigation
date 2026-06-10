@@ -74,7 +74,11 @@ public class StatusUI : MonoBehaviour
 
     void Update()
     {
-        bool connected = (Time.time - RosPublishCarPose.LastPublishTime) < timeout;
+        bool rosLayerOk = !ros.HasConnectionError;
+        bool recentPublish = (Time.time - RosPublishCarPose.LastPublishTime) < timeout;
+        bool recentMsg = (Time.time - lastMsgTime) < timeout;
+
+        bool connected = rosLayerOk || recentPublish || recentMsg;
 
         if (connectionText != null)
         {
